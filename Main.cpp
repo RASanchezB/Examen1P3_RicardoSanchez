@@ -32,7 +32,20 @@ int main(){
 	bool continua = true;
 	cout<<"Tu turno de: "<<Jugador1<<endl;
 	while(false){
-		cout<<"Turno de: "<<Jugador1<<endl;
+		int CuentaTurnos = 0;
+		if(CuentaTurnos%2 == 0){
+			cout<<"Es tu turno: "<<Jugador1<<endl;
+			cout<<"Ingrese las cordenadas de inicio y final del movimiento:"<<endl;
+			string MovementB = "";
+			cin>>MovementB;
+			
+		}else{
+			cout<<"Es tu turno: "<<Jugador2<<endl;
+			cout<<"Ingrese las cordenadas de inicio y final del movimiento:"<<endl;
+			string MovementN = "";
+			cin>>MovementN;
+
+		}
 	}
 	//fin del juego
 	eliminiarTablero(Tablero);
