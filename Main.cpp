@@ -31,12 +31,13 @@ int main(){
 	cout << "Empieza el juego" << endl;
 	bool continua = true;
 	cout<<"Tu turno de: "<<Jugador1<<endl;
-	while(false){
-		int CuentaTurnos = 0;
+	int CuentaTurnos = 0;
+	cout<<"Hatsa arreglar el metodo de victoria la prueba se repetira solo 3 veces"<<endl;
+	while(CuentaTurnos < 3){
 		if(CuentaTurnos%2 == 0){
 			//El turno del primer jugador----------------------------------------------------------
 			cout<<"Es tu turno: "<<Jugador1<<endl;
-			cout<<"Ingrese las cordenadas de inicio y final del movimiento:"<<endl;
+			cout<<"Ingrese las cordenadas de inicio y final del movimiento (Ejemplo: A6-B7):"<<endl;
 			string MovementB = "";
 			cin>>MovementB;
 			int ColumnaIni = -1;
@@ -126,11 +127,12 @@ int main(){
 				continua = false;
 			}
 			CuentaTurnos++;
+			imprimirTablero(Tablero);
 
 		}else{
 			//El turno del psegundo jugador------------------------------------------------------------
 			cout<<"Es tu turno: "<<Jugador2<<endl;
-			cout<<"Ingrese las cordenadas de inicio y final del movimiento:"<<endl;
+			cout<<"Ingrese las cordenadas de inicio y final del movimiento (Ejemplo: A6-B7):"<<endl;
 			string MovementN = "";
 			cin>>MovementN;
 			int ColumnaIni = -1;
@@ -220,7 +222,7 @@ int main(){
 				continua = false;
 			}
 			CuentaTurnos++;
-
+			imprimirTablero(Tablero);
 		}
 	}
 	//fin del juego
