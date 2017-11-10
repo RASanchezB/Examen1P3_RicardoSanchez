@@ -25,5 +25,4 @@ void Pieza::setColor(char nColor){
 	Color = nColor;
 }
 Pieza::~Pieza(){
-	cout<<"El destructor funciono"<<endl;
 }

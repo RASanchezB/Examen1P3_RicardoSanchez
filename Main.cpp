@@ -4,7 +4,8 @@
 
 using namespace std;
 Pieza*** crearTablero();
-void llenarTablero(Pieza***);
+Pieza*** llenarTablero(Pieza***);
+void imprimirTablero(Pieza***);
 void eliminiarTablero(Pieza***);
 
 int main(){
@@ -17,10 +18,12 @@ int main(){
 	Pieza*** Tablero;
 	Tablero = crearTablero();
 	//Ingresar los nombre de los jugadores
-
+	Tablero = llenarTablero(Tablero);
+	//Primera impresion del tablero
+	imprimirTablero(Tablero);
 	//Empieza el juego
 	bool continua = true;
-	while(continua){
+	while(false){
 
 	}
 	//fin del juego
@@ -42,32 +45,52 @@ Pieza*** crearTablero(){
 	}
 	return tablero;
 }
-void llenarTablero(Pieza*** tablero){
+Pieza*** llenarTablero(Pieza*** tablero){
 	Pieza* PBlanca = new Pieza("Marine",'B');
 	Pieza* PNegra =  new Pieza("Marine",'N');
+	Pieza* Vacia = new Pieza("Ninguna",' ');
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			if (i == 0 || i == 2) {
-				if(!j%2 == 0){
+				if(j%2 == 0){
+					tablero[i][j] = Vacia;
+				}else{
 					tablero[i][j] = PNegra;
 				}
 			} else if(i == 1){
 				if(j%2 == 0){
 					tablero[i][j] = PNegra;
+				}else{
+					tablero[i][j] = Vacia;
 				}
 			}else if(i == 5 || i == 7){
 				if(j%2 == 0){
 					tablero[i][j] = PBlanca;
+				}else{
+					tablero[i][j] = Vacia;
 				}
 			}else if(i == 6){
-				if(!j%2==0){
+				if(j%2==0){
+					tablero[i][j] = Vacia;
+				}else{
 					tablero[i][j] = PBlanca;
 				}
+			}else{
+				tablero[i][j] = Vacia;
 			}
 		}
 	}
 	delete PBlanca;
 	delete PNegra;
+	return tablero;
+}
+void imprimirTablero(Pieza*** tablero){
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			cout << "[" << tablero[i][j] -> getColor()<<"] ";
+		}
+		cout<<endl;
+	}
 }
 void eliminiarTablero(Pieza*** tablero){
 	for (int i = 0; i < 8; i++) {
