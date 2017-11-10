@@ -10,7 +10,7 @@ Pieza::Pieza(){
 }
 Pieza::Pieza(string pTipo, char pColor){
 	Tipo = pTipo;
-	Colo = pColor;
+	Color = pColor;
 }
 string Pieza::getTipo(){
 	return Tipo;
@@ -18,11 +18,11 @@ string Pieza::getTipo(){
 char Pieza::getColor(){
 	return Color;
 }
-void Pieza::setTipo(string pTipo){
-	Tipo = pTipo;
+void Pieza::setTipo(string nTipo){
+	Tipo = nTipo;
 }
-void Pieza::setColor(char pColor){
-	Color = pColor;
+void Pieza::setColor(char nColor){
+	Color = nColor;
 }
 Pieza::~Pieza(){
 	cout<<"El destructor funciono"<<endl;

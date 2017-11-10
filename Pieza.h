@@ -15,8 +15,8 @@ class Pieza{
 		string getTipo();
 		char getColor();
 		//setters
-		void setTipo();
-		void setColor();
+		void setTipo(string);
+		void setColor(char);
 		//destructor
 		~Pieza();
 };
