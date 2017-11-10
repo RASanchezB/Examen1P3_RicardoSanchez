@@ -18,13 +18,21 @@ int main(){
 	Pieza*** Tablero;
 	Tablero = crearTablero();
 	//Ingresar los nombre de los jugadores
+	cout<<"Ingrese el nombre del Jugador1:"<<endl;
+	cin>>Jugador1;
+	cout<<"Ingrese el nombre del Jugador2"<<endl;
+	cin>>Jugador2;
+	//llenar el tablero
 	Tablero = llenarTablero(Tablero);
 	//Primera impresion del tablero
 	imprimirTablero(Tablero);
-	//Empieza el juego
-	bool continua = true;
-	while(false){
 
+	//Empieza el juego
+	cout << "Empieza el juego" << endl;
+	bool continua = true;
+	cout<<"Tu turno de: "<<Jugador1<<endl;
+	while(false){
+		cout<<"Turno de: "<<Jugador1<<endl;
 	}
 	//fin del juego
 	eliminiarTablero(Tablero);
@@ -85,7 +93,9 @@ Pieza*** llenarTablero(Pieza*** tablero){
 	return tablero;
 }
 void imprimirTablero(Pieza*** tablero){
+	cout << "   (a) (b) (c) (d) (e) (f) (g) (h)" << endl;
 	for (int i = 0; i < 8; i++) {
+		cout<<"("<<i<<")";
 		for (int j = 0; j < 8; j++) {
 			cout << "[" << tablero[i][j] -> getColor()<<"] ";
 		}
