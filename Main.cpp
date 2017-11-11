@@ -120,11 +120,13 @@ int main(){
 			}
 			//HValidar el movimiento---------------------------------------------------------------------------
 			if(ColumnaIni < 0 || ColumnaIni > 7 || FilaIni < 0 || FilaIni > 7 || FilaFin < 0 || FilaFin > 7){
-				cout<<"Su movimiento es invalido. Pierde si turno"<<endl;
+				cout<<"Su movimiento es invalido. Pierde su turno"<<endl;
 			}else{//Hacer el movimiento----------------------------------------------------------------------
 				if(Tablero[ColumnaIni][FilaIni]->getColor() == 'B'){
 					Tablero[ColumnaFin][FilaFin] = Tablero[ColumnaIni][FilaIni];
 					Tablero[ColumnaIni][FilaIni] = new Pieza("Ninguna",' ');
+				}else{
+					cout<<"Ese movimiento no es permitido. Pierde su turno"<<endl;
 				}
 			}
 			//Validar si el juego continua--------------------------------------------------------------------
@@ -221,8 +223,14 @@ int main(){
 				cout<<"Su movimiento es invalido. Pierde si turno"<<endl;
 			}else{//Hacer movimiento----------------------------------------------------------------------------
 				if(Tablero[ColumnaIni][FilaIni]->getColor() == 'N'){
-					Tablero[ColumnaFin][FilaFin] = Tablero[ColumnaIni][FilaIni];
-					Tablero[ColumnaIni][FilaIni] = new Pieza("Ninguna",' ');
+					if(ColumnaIni == ColumnaFin || FilaIni == FilaFin){
+						if(ColumnaIni == ColumnaFin || FilaIni == FilaFin){
+							Tablero[ColumnaFin][FilaFin] = Tablero[ColumnaIni][FilaIni];
+							Tablero[ColumnaIni][FilaIni] = new Pieza("Ninguna",' ');
+						}else{
+							cout<<"Esa movida no es permitida. Pierde su turno"<<endl;
+						}
+					}
 				}
 			}
 			//Validar si el juego continua
