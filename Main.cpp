@@ -33,9 +33,9 @@ int main(){
 	cout<<"Tu turno de: "<<Jugador1<<endl;
 	int CuentaTurnos = 0;
 	cout<<"///////////////////////////////////////////////////////////////////////"<<endl;
-	cout<<"Hatsa arreglar el metodo de victoria la prueba se repetira solo 3 veces"<<endl;
+	cout<<"Hatsa arreglar el metodo de victoria la prueba se repetira solo 5 veces"<<endl;
 	cout<<"//////////////////////////////////////////////////////////////////////"<<endl;
-	while(CuentaTurnos < 3){
+	while(CuentaTurnos < 5){
 		if(CuentaTurnos%2 == 0){
 			//El turno del primer jugador----------------------------------------------------------
 			cout<<"Es tu turno: "<<Jugador1<<endl;
