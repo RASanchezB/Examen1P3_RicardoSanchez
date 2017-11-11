@@ -26,13 +26,15 @@ int main(){
 	Tablero = llenarTablero(Tablero);
 	//Primera impresion del tablero
 	imprimirTablero(Tablero);
-
+	string Ganador;
 	//Empieza el juego
 	cout << "Empieza el juego" << endl;
 	bool continua = true;
 	cout<<"Tu turno de: "<<Jugador1<<endl;
 	int CuentaTurnos = 0;
+	cout<<"///////////////////////////////////////////////////////////////////////"<<endl;
 	cout<<"Hatsa arreglar el metodo de victoria la prueba se repetira solo 3 veces"<<endl;
+	cout<<"//////////////////////////////////////////////////////////////////////"<<endl;
 	while(CuentaTurnos < 3){
 		if(CuentaTurnos%2 == 0){
 			//El turno del primer jugador----------------------------------------------------------
@@ -116,13 +118,16 @@ int main(){
 			}else if(MovementB.at(4) == '8'){
 				FilaFin = 7;
 			}
-			//Hacer el movimiento
+			//HValidar el movimiento---------------------------------------------------------------------------
 			if(ColumnaIni < 0 || ColumnaIni > 7 || FilaIni < 0 || FilaIni > 7 || FilaFin < 0 || FilaFin > 7){
 				cout<<"Su movimiento es invalido. Pierde si turno"<<endl;
-			}else{
-
+			}else{//Hacer el movimiento----------------------------------------------------------------------
+				if(Tablero[ColumnaIni][FilaIni]->getColor() == 'B'){
+					Tablero[ColumnaFin][FilaFin] = Tablero[ColumnaIni][FilaIni];
+					Tablero[ColumnaIni][FilaIni] = new Pieza("Ninguna",' ');
+				}
 			}
-			//Validar si el juego continua
+			//Validar si el juego continua--------------------------------------------------------------------
 			if(ContadorDeNegros == 0){
 				continua = false;
 			}
@@ -130,7 +135,7 @@ int main(){
 			imprimirTablero(Tablero);
 
 		}else{
-			//El turno del psegundo jugador------------------------------------------------------------
+			//El turno del segundo jugador------------------------------------------------------------
 			cout<<"Es tu turno: "<<Jugador2<<endl;
 			cout<<"Ingrese las cordenadas de inicio y final del movimiento (Ejemplo: A6-B7):"<<endl;
 			string MovementN = "";
@@ -211,15 +216,19 @@ int main(){
 			}else if(MovementN.at(4) == '8'){
 				FilaFin = 7;
 			}
-			//Hacer el movimiento
+			//Validar el movimiento-------------------------------------------------------------------------------
 			if(ColumnaIni < 0 || ColumnaIni > 7 || FilaIni < 0 || FilaIni > 7 || FilaFin < 0 || FilaFin > 7){
 				cout<<"Su movimiento es invalido. Pierde si turno"<<endl;
-			}else{
-
+			}else{//Hacer movimiento----------------------------------------------------------------------------
+				if(Tablero[ColumnaIni][FilaIni]->getColor() == 'N'){
+					Tablero[ColumnaFin][FilaFin] = Tablero[ColumnaIni][FilaIni];
+					Tablero[ColumnaIni][FilaIni] = new Pieza("Ninguna",' ');
+				}
 			}
 			//Validar si el juego continua
 			if(ContadorDeBlancos == 0){
 				continua = false;
+
 			}
 			CuentaTurnos++;
 			imprimirTablero(Tablero);
@@ -227,6 +236,11 @@ int main(){
 	}
 	//fin del juego
 	eliminiarTablero(Tablero);
+	if(ContadorDeBlancos == 0){
+		cout << "El ganador es: " << Jugador2<<endl;
+	}else{
+		cout<<"El ganador es: "<< Jugador1<<endl;
+	}
 	//imprimir ganador
 
 	return 0;
